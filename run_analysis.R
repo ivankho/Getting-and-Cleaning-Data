@@ -81,5 +81,8 @@ tidy$Activity[tidy$Activity_Code == 4] <- "SITTING"
 tidy$Activity[tidy$Activity_Code == 5] <- "STANDING"
 tidy$Activity[tidy$Activity_Code == 6] <- "LAYING"
 
+# Updates column names
+names(tidy) <- gsub(pattern="\\(\\)",replacement="",x=names(tidy))
+
 # Writes data frame as a `Tidy` text file with comma separated values
 write.table(tidy, file = "tidy.txt", sep = ",", col.names = colnames(tidy))
